@@ -46,6 +46,13 @@ public class Topic_00_Template {
 	public void TC_03_Form() {
 		
 	}
+	public void sleepInSecond (long timeInSecond) {
+		try {
+			Thread.sleep(timeInSecond * 1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 
 	@AfterClass
 	public void afterClass() {

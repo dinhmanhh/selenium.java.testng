@@ -20,6 +20,7 @@ public class Topic_05_Web_Element_Excercise_Part2 {
 	String projectPath = System.getProperty("user.dir");
 	String osName = System.getProperty("os.name");
 	
+	// khai báo biến
 	String emailAddress, firstName, lastName, middleName ,password, fullName; 
 	
 	
@@ -42,7 +43,7 @@ public class Topic_05_Web_Element_Excercise_Part2 {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		
-		//khai báo biến random
+		// định nghĩa biến 
 		emailAddress = "dinhmanh" + rand.nextInt(9999) + "@gmail.com";
 		firstName = "Le";
 		lastName = "Manh";

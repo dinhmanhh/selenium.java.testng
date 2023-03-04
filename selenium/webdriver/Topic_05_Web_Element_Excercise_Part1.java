@@ -6,8 +6,10 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -15,6 +17,8 @@ import org.testng.annotations.Test;
 
 public class Topic_05_Web_Element_Excercise_Part1 {
 	WebDriver driver;
+	
+	
 	String projectPath = System.getProperty("user.dir");
 	String osName = System.getProperty("os.name");
 	
@@ -140,8 +144,12 @@ public class Topic_05_Web_Element_Excercise_Part1 {
 		By passwordTextbox = By.id("new_password");
 		By signupButton = By.id("create-account-enabled");
 		
+		// Actions action = new Actions(driver);
+		// WebElement signUp = driver.findElement(By.id("create-account-enabled"));
+		// action.moveToElement(signUp).click().perform();
+		
 		// case1: nhap abc - only lower case
-		driver.findElement(By.xpath("//button[@class='onetrust-close-btn-handler onetrust-close-btn-ui banner-close-button ot-close-icon']")).click();
+		driver.findElement(By.cssSelector("button.onetrust-close-btn-handler.ot-close-icon")).click();
 		driver.findElement(passwordTextbox).sendKeys("abc");
 		driver.findElement(signupButton).click();
 		
@@ -159,6 +167,7 @@ public class Topic_05_Web_Element_Excercise_Part1 {
 		// case2: nhap ABC - only upper case
 		driver.findElement(passwordTextbox).clear();
 		driver.findElement(passwordTextbox).sendKeys("ABC");
+		// action.moveToElement(signUp).click().perform();
 		driver.findElement(signupButton).click();
 		// js.executeScript("document.getElementById('create-account-enabled').click()");
 		sleepInSecond(3);
@@ -172,6 +181,7 @@ public class Topic_05_Web_Element_Excercise_Part1 {
 		// case3: nhap 123 - only number
 		driver.findElement(passwordTextbox).clear();
 		driver.findElement(passwordTextbox).sendKeys("123");
+		// action.moveToElement(signUp).click().perform();
 		driver.findElement(signupButton).click();
 		// js.executeScript("document.getElementById('create-account-enabled').click()");
 		sleepInSecond(3);
@@ -185,6 +195,7 @@ public class Topic_05_Web_Element_Excercise_Part1 {
 		// case4: nhap @#$%^ - only special character
 		driver.findElement(passwordTextbox).clear();
 		driver.findElement(passwordTextbox).sendKeys("@#$%^");
+		// action.moveToElement(signUp).click().perform();
 		driver.findElement(signupButton).click();
 		// js.executeScript("document.getElementById('create-account-enabled').click()");
 		sleepInSecond(3);
@@ -198,6 +209,7 @@ public class Topic_05_Web_Element_Excercise_Part1 {
 		// case5: nhap !@#a1A - combine but not >= 8-char
 		driver.findElement(passwordTextbox).clear();
 		driver.findElement(passwordTextbox).sendKeys("!@#a1A");
+		// action.moveToElement(signUp).click().perform();
 		driver.findElement(signupButton).click();
 		// js.executeScript("document.getElementById('create-account-enabled').click()");
 		sleepInSecond(3);
@@ -211,6 +223,7 @@ public class Topic_05_Web_Element_Excercise_Part1 {
 		// case6: nhap ABCDEFGHJHK >= 8-char
 		driver.findElement(passwordTextbox).clear();
 		driver.findElement(passwordTextbox).sendKeys("ABCDEFGHJHK");
+		// action.moveToElement(signUp).click().perform();
 		driver.findElement(signupButton).click();
 		// js.executeScript("document.getElementById('create-account-enabled').click()");
 		sleepInSecond(3);
@@ -245,6 +258,6 @@ public class Topic_05_Web_Element_Excercise_Part1 {
 	}
 	@AfterClass
 	public void afterClass() {
-		driver.quit();
+		// driver.quit();
 	}
 }
